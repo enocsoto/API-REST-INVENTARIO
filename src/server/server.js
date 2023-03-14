@@ -1,4 +1,4 @@
-import {routes} from '../routes/index.js';
+import {routes, routelogin} from '../routes/index.js';
 import * as dotenv from 'dotenv'
 dotenv.config()
 import express from 'express';
@@ -14,11 +14,11 @@ class Server {
 
     middlewares(){
         this.app.use(express.json());
-        this.app.use('/', routes);
     }
 
     route(){
         this.app.use('/', routes);
+        this.app.use('/api', routelogin);
     }
 
     listen(){
